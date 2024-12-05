@@ -7,12 +7,11 @@ from easy_entrez.parsing import xml_to_string
 
 entrez_api = EntrezAPI(
     'easy-entrez-test',
-    'krassowski.michal+easyentrez@mail.com',
+    'kolja.o@gmail.com',
     return_type='json',
     # 2 seconds interval as these tests are less urgent than any actual research
     minimal_interval=2
 )
-
 
 def test_query_helpers():
     assert (
@@ -21,13 +20,11 @@ def test_query_helpers():
         '13[chromosome] AND human[organism] AND 31873085[position]'
     )
 
-
 def test_search():
     result = entrez_api.search('cancer AND human[organism]', max_results=1)
     assert is_response_for(result, SearchQuery)
     assert not is_response_for(result, FetchQuery)
     assert result.data['esearchresult']['count'] != 0
-
 
 def test_fetch():
     result = entrez_api.fetch(['4'], max_results=1, database='snp')
