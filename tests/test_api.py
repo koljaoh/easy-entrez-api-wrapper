@@ -7,7 +7,7 @@ from easy_entrez.parsing import xml_to_string
 
 entrez_api = EntrezAPI(
     'easy-entrez-test',
-    'kolja.o@gmail.com',
+    'kolja.oh@gmail.com',
 
     return_type='json',
     # 2 seconds interval as these tests are less urgent than any actual research
